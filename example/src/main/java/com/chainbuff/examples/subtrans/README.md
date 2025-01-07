@@ -263,5 +263,5 @@ transaction {
 可以通过调用 SubscriptionClient 对象的 shutdown() 方法关闭通道及取消订阅。
 
 
-### 6.关于保活
-[SubscriptionClient.java](..%2F..%2Fgrpc%2FSubscriptionClient.java)subscribe中已经实现了ping的逻辑，使用过程中不用再另外实现。
+### 6.关于ping
+[SubscriptionClient.java](..%2F..%2Fgrpc%2FSubscriptionClient.java) 中 subscribe中已经实现了ping的逻辑，可以参考具体实现。
