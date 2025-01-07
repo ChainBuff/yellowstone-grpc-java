@@ -27,8 +27,11 @@ public class SubTest {
                 public void onData(SubscribeUpdate data) {
                     if (data.hasTransaction()){
                         String signature = Base58.encode(data.getTransaction().getTransaction().getSignature().toByteArray());
-                        System.out.println(signature);
-                        System.out.println(data.getTransaction());
+//                        System.out.println(signature);
+                        System.out.println(data.getTransaction().getSlot());
+                    }
+                    if (data.hasPong()){
+                        System.out.println(data);
                     }
 
                 }
