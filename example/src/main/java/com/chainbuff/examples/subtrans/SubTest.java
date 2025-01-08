@@ -3,10 +3,9 @@ package com.chainbuff.examples.subtrans;
 import com.chainbuff.grpc.Base58;
 import com.chainbuff.grpc.SubscribeDataCallback;
 import com.chainbuff.grpc.SubscriptionClient;
-import geyser.CommitmentLevel;
-import geyser.SubscribeRequest;
-import geyser.SubscribeRequestFilterTransactions;
-import geyser.SubscribeUpdate;
+import geyser.*;
+
+import java.time.LocalDateTime;
 
 public class SubTest {
 
@@ -26,9 +25,10 @@ public class SubTest {
                 @Override
                 public void onData(SubscribeUpdate data) {
                     if (data.hasTransaction()){
-                        String signature = Base58.encode(data.getTransaction().getTransaction().getSignature().toByteArray());
+                        System.out.println(LocalDateTime.now()+":"+data.getTransaction().getSlot()+":"+data.getTransaction().getTransaction().getIndex());
+//                        String signature = Base58.encode(data.getTransaction().getTransaction().getSignature().toByteArray());
 //                        System.out.println(signature);
-                        System.out.println(data.getTransaction().getSlot());
+//                        System.out.println(data.getTransaction().getSlot());
                     }
                     if (data.hasPong()){
                         System.out.println(data);
